@@ -1,0 +1,9 @@
+xypp-sticky-posts:
+  admin:
+    permission: 
+      sticky_posts: Sticky posts
+
+  forum:
+    unsticky: Unsticky
+    sticky: Sticky
+    sticky_icon: Sticky Post

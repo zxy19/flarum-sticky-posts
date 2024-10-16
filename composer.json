@@ -1,0 +1,58 @@
+{
+    "name": "xypp/flarum-sticky-posts",
+    "description": "Sticky a post in any discussion.",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.2.0"
+    },
+    "authors": [
+        {
+            "name": "小鱼飘飘",
+            "email": "z@xypp.cc",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Xypp\\StickyPosts\\": "src/"
+        },
+        "files": [
+            "override/ShowDiscussionController.php"
+        ]
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Sticky Posts",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-thumbtack",
+                "color": "#fff",
+                "backgroundColor": "#1b5e20"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "backendTesting": true,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
