@@ -8,7 +8,7 @@ class SavingStickyPosts
 {
     public function __invoke(Saving $event)
     {
-        if ($isSticky = Arr::get($event->data, 'attributes.is_sticky')) {
+        if (!is_null($isSticky = Arr::get($event->data, 'attributes.is_sticky', null))) {
             $event->actor->assertCan("sticky_posts", $event->post->discussion);
 
             $event->post->is_sticky = $isSticky;

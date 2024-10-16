@@ -134,7 +134,7 @@ class ShowDiscussionController extends AbstractShowController
      */
     private function loadPostIds(Discussion $discussion, User $actor)
     {
-        return $discussion->posts()->whereVisibleTo($actor)->orderBy(['is_sticky' => 'desc', 'number' => 'asc'])->pluck('id')->all();
+        return $discussion->posts()->whereVisibleTo($actor)->select('posts.*')->selectRaw('(is_sticky or number = 1) as sticky_number')->orderBy('sticky_number', "desc")->orderBy('number')->pluck('id')->all();
     }
 
     private function getPostRelationships(array $include): array
@@ -182,9 +182,9 @@ class ShowDiscussionController extends AbstractShowController
      */
     private function loadPosts($discussion, $actor, $offset, $limit, array $include, ServerRequestInterface $request)
     {
-        $query = $discussion->posts()->whereVisibleTo($actor);
+        $query = $discussion->posts()->select('posts.*')->selectRaw('(is_sticky or number = 1) as sticky_number')->whereVisibleTo($actor);
 
-        $query->orderBy('number')->skip($offset)->take($limit);
+        $query->orderBy('sticky_number', "desc")->orderBy('number')->skip($offset)->take($limit);
 
         $posts = $query->get();
 
