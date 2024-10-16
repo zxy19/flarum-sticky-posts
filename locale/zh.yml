@@ -1,0 +1,9 @@
+xypp-sticky-posts:
+  admin:
+    permission: 
+      sticky_posts: 置顶帖子
+
+  forum:
+    unsticky: 取消置顶
+    sticky: 置顶
+    sticky_icon: 置顶
