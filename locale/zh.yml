@@ -2,7 +2,7 @@ xypp-sticky-posts:
   admin:
     permission: 
       sticky_posts: 置顶帖子
-
+      sticky_posts_by_starter: 置顶帖子（发帖人）
   forum:
     unsticky: 取消置顶
     sticky: 置顶

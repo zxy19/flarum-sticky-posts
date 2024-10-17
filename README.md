@@ -23,5 +23,4 @@ php flarum cache:clear
 ## Links
 
 - [Packagist](https://packagist.org/packages/xypp/flarum-sticky-posts)
-- [GitHub](https://github.com/xypp/flarum-sticky-posts)
-- [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
+- [GitHub](https://github.com/zxy19/flarum-sticky-posts)

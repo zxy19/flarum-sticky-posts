@@ -2,6 +2,7 @@ xypp-sticky-posts:
   admin:
     permission: 
       sticky_posts: Sticky posts
+      sticky_posts_by_starter: Sticky posts by starter
 
   forum:
     unsticky: Unsticky

@@ -8,5 +8,12 @@ app.initializers.add('xypp/flarum-sticky-posts', () => {
       permission: 'discussion.sticky_posts',
     },
     'moderate'
+  ).registerPermission(
+    {
+      icon: 'fas fa-thumbtack',
+      label: app.translator.trans('xypp-sticky-posts.admin.permission.sticky_posts_by_starter'),
+      permission: 'discussion.sticky_posts_by_starter',
+    },
+    'moderate'
   );
 });

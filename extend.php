@@ -30,7 +30,12 @@ return [
         ->listen(Saving::class, SavingStickyPosts::class),
     (new Extend\ApiSerializer(DiscussionSerializer::class))
         ->attribute('canStickyPosts', function (DiscussionSerializer $serializer, $model, $attrs) {
-            return RequestUtil::getActor($serializer->getRequest())->can('sticky_posts', $model);
+            $actor = RequestUtil::getActor($serializer->getRequest());
+            if ($model->user_id == $actor->id) {
+                if ($actor->can('sticky_posts_by_starter', $model))
+                    return true;
+            }
+            return $actor->can('sticky_posts', $model);
         }),
     (new Extend\ApiSerializer(PostSerializer::class))
         ->attribute('is_sticky', function (PostSerializer $serializer, $model, $attrs) {
