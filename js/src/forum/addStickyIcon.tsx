@@ -9,7 +9,7 @@ export default function addStickyIcon() {
             items.add('sticky', <span className='sticky'>
                 <i class="fas fa-thumbtack"></i>
                 {app.translator.trans('xypp-sticky-posts.forum.sticky_icon')}
-            </span>,10);
+            </span>, 0.5);
         }
     });
 }
