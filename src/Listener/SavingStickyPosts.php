@@ -9,7 +9,7 @@ class SavingStickyPosts
     public function __invoke(Saving $event)
     {
         if (!is_null($isSticky = Arr::get($event->data, 'attributes.is_sticky', null))) {
-            if ($event->actor->id == $event->post->discussion->user_id && $event->actor->can('sticky_posts_by_starter')) {
+            if ($event->actor->id == $event->post->discussion->user_id && $event->actor->can('sticky_posts_by_starter', $event->post->discussion)) {
                 // Starter can sticky, no need to check permissions
             } else {
                 $event->actor->assertCan("sticky_posts", $event->post->discussion);
